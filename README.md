@@ -19,14 +19,7 @@ export MASTODON_USEREMAIL='your@mastodon.email'
 export MASTODON_PASSWORD='yourSecretPassword'
 ```
 
-Add this in, for example, your ~/.profile file on Linux (or ~/.bashrc if you're using Wayland,) and to the ~/.bash_profile on macOS.
-
-Windows (cmd)
-
-```bash
-setx MASTODON_USEREMAIL "your@mastodon.email"
-setx MASTODON_PASSWORD "yourSecretPassword"
-```
+Add this to for example your ~/.profile file or ~/.bashrc if you're using Wayland, and to the ~/.bash_profile on macOS.
 
 Remember to restart the shell for the changes to take effect.
 
