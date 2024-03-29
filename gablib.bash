@@ -11,7 +11,6 @@
 
 BASEURL="https://gab.com"
 TMP="/tmp"
-TMPCOOKIEJAR="$TMP/gab--cookies-$(date +%N)"
 
 if [ -z $(which curl) ]; then
   echo "This script requires curl"
@@ -29,6 +28,7 @@ fi
 function getAccessToken() {
   local TMPSIGNIN="$TMP/gab--signin-$(date +%N).html"
   local TMPAUTH="$TMP/gab--auth-$(date +%N).html"
+  local TMPCOOKIEJAR="$TMP/gab--cookies-$(date +%N)"
 
   curl -c "$TMPCOOKIEJAR" "$BASEURL/auth/sign_in" > "$TMPSIGNIN" 2>/dev/null
   local FORMTOKEN=$(sed -n '/token/s/.*name="authenticity_token"\s\+value="\([^"]\+\).*/\1/p' "$TMPSIGNIN")
@@ -50,7 +50,6 @@ function getAccessToken() {
 function fetch.get() {
   local URL="$BASEURL/$1"
   RESPONSE=$(curl "$URL" \
-                  -b "$TMPCOOKIEJAR" -c "$TMPCOOKIEJAR" \
                   -H "Content-Type: application/json" \
                   -H "Authorization: Bearer $ACCESSTOKEN" 2>/dev/null)
 }
