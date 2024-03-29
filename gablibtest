@@ -13,6 +13,8 @@ getAccessToken;
 # for demo, never publish or show your access token
 echo $ACCESSTOKEN
 
-# get first opage of notifications. Requires the jq command.
-fetch.get "/api/v1/notifications"
-echo $RESPONSE | jq
+echo -e "\nGroups I'm member of:"
+
+fetch.get "/api/v1/groups?tab=member"
+
+echo $RESPONSE | jq | grep -B 1 '"title":'
