@@ -17,7 +17,6 @@ For Linux and macOS, you can use:
 ```bash
 export MASTODON_USEREMAIL='your@mastodon.email'
 export MASTODON_PASSWORD='yourSecretPassword'
-export MASTODON_BASEURL='https://somemastodon.site'
 ```
 
 Add this in, for example, your ~/.profile file on Linux (or ~/.bashrc if you're using Wayland,) and to the ~/.bash_profile on macOS.
@@ -27,10 +26,17 @@ Windows (cmd)
 ```bash
 setx MASTODON_USEREMAIL "your@mastodon.email"
 setx MASTODON_PASSWORD "yourSecretPassword"
-setx MASTODON_BASEURL "https://somemastodon.site"
 ```
 
 Remember to restart the shell for the changes to take effect.
+
+Prerequisites
+--------------
+
+You will need the `curl` and `tr` command installed. 
+
+(`tr` usually comes preinstalled on linux systems.)
+
 
 Example
 -------
