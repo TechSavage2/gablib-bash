@@ -1,0 +1,18 @@
+#/usr/bin/bash
+
+# Example use
+
+# import gablib
+. ./gablib.bash --source-only
+
+echo "Getting auth token..."
+
+# this calls the lib function and sets the ACCESSTOKEN var if successful.
+getAccessToken;
+
+# for demo, never publish or show your access token
+echo $ACCESSTOKEN
+
+# get first opage of notifications. Requires the jq command.
+fetch.get "/api/v1/notifications"
+echo $RESPONSE | jq
